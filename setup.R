@@ -1,5 +1,3 @@
-install.packages("./R/iaputils_1.0.18.tar.gz")
-
 library(iaputils)
 library(readxl)
 library(dplyr)

@@ -1,3 +1,4 @@
+install.packages("./R/iaputils_1.0.18.tar.gz")
 source("./setup.R")
 
 source("R/xbb_helper_functions.R")
@@ -19,7 +20,7 @@ source("./processing/09_generate_efficacy_dataset.R")
 source("./processing/11_setup_mixed_effects_modelling.R")
 source("./processing/12_setup_plotting_variables.R")
 
-source("./analysis/09_make_efficacy_plots_from_regressions.R")
 source("./analysis/14_run_all_mixed_effects_models.R")
 source("./analysis/17_manuscript_text_final.R")
 source("./analysis/18_manuscript_plots_final.R")
+remove.packages("iaputils")

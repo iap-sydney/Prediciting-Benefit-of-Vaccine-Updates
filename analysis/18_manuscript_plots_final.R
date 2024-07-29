@@ -7,7 +7,6 @@ manuscript_plot_XBB_variant = ggplot(filter(combined_dataset_to_use, !is.na(immu
   
   stat_compare_means(comparisons = list(c(1,2),c(2,3)),method="t.test", size = 5)+
   geom_point(aes(colour=immunogen_group, shape = paper), size = 2, position = position_jitter(width=.3))+
-  #scale_colour_manual(values = c("pink", "dodgerblue", "goldenrod1"), guide="none")+
   scale_colour_manual(values = c("grey50", "grey50", "grey50"), guide="none")+
   scale_y_log10(breaks = c(1,3,10,30))+
   scale_shape_manual(name = "Paper", values = paper_shapes_cleaned,labels = manuscript_reference_labels)+
@@ -15,7 +14,6 @@ manuscript_plot_XBB_variant = ggplot(filter(combined_dataset_to_use, !is.na(immu
   labs(y = "Fold Rise to XBB",x = "Immunogen in Booster")+ 
   coord_cartesian(ylim = c(1,50))
 manuscript_plot_XBB_variant
-ggsave("output/plots/18_XBB_variant.jpg",manuscript_plot_XBB_variant, width=mw*1.2, height = mh*1.5) 
 ggsave("output/plots/18_XBB_variant.pdf",manuscript_plot_XBB_variant, width=mw*1.2, height = mh*1.5) 
 
 
@@ -72,7 +70,6 @@ regression_fold_rise_and_model_plot = plot_grid(fold_rise_regression_plot+theme(
                                                 NULL,
                                                 model_plot_no_interaction_fold_rise_only+theme(legend.position = "none"),
                                                 horizontal_legend, ncol=1, rel_heights = c(5.5,.2,3,1), align = "h", labels = c("A","","B"), label_x=0,label_y = c(1,1,1.2), label_size = 30)
-ggsave("output/plots/18_regression_fold_rise_data_and_model.jpg", regression_fold_rise_and_model_plot,width=mw*2.1, height=mh*4.5)
 ggsave("output/plots/18_regression_fold_rise_data_and_model.pdf", regression_fold_rise_and_model_plot,width=mw*2.1, height=mh*4.5)
 
 
@@ -81,7 +78,6 @@ fold_rise_plot_by_exposures_manuscript = manuscript_plot_by_exposures (y="fold_r
 fold_rise_plot_by_exposures_manuscript_legend = plot_grid(fold_rise_plot_by_exposures_manuscript+theme(legend.position = "none"),
                                                           NULL,
                                                           vertical_legend, nrow=1, rel_widths = c(1.7,.07,1.1), rel_heights = c(1,1.2))
-ggsave("output/plots/18_fold_rise_by_exposures.jpg",fold_rise_plot_by_exposures_manuscript_legend, width=mw*1.45, height=mh*1.75)
 ggsave("output/plots/18_fold_rise_by_exposures.pdf",fold_rise_plot_by_exposures_manuscript_legend, width=mw*1.45, height=mh*1.75)
 
 
@@ -98,7 +94,6 @@ regression_absolute_data = plot_grid(post_neut_regression_plot+theme(legend.posi
                                      NULL,
                                      horizontal_aboslute_legend, ncol=1, rel_heights = c(5.5,.1,1), 
                                      align = "h")
-ggsave("output/plots/18_regression_absolute_data.jpg",regression_absolute_data,width=mw*2.2, height=mh*4)
 ggsave("output/plots/18_regression_absolute_data.pdf",regression_absolute_data,width=mw*2.2, height=mh*4)
 
 
@@ -118,4 +113,3 @@ eff_old_updated_plot = ggplot(mutate(effs_old_updated_df, letterLabel = head(int
   xbb_manuscript_theme+
   theme(legend.key.width = unit(40,"pt"))
 ggsave("output/plots/18_efficacies_old_updated.pdf",eff_old_updated_plot,width = mw*2.1, height = mh*3.6)
-ggsave("output/plots/18_efficacies_old_updated.jpg",eff_old_updated_plot,width = mw*2.1, height = h*3.6)
